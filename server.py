@@ -1,10 +1,13 @@
 #!/usr/bin/python
 import argparse
+import logging
 import time
 
 from tornado.ioloop import IOLoop
-from rpc import RPCServer
-from util import setup_logging
+from rpclock.rpc import RPCServer
+from rpclock.util import setup_logging
+
+logger = logging.getLogger('rpc')
 
 
 class Server(RPCServer):
@@ -16,7 +19,9 @@ class Server(RPCServer):
     def listen(self, port=None, address=""):
         _port = port or self.port
         _address = address or self.host
+        logger.info('Server listen on %s:%s' % (_address, _port))
         super(RPCServer, self).listen(_port, _address)
+
 
     def time(self):
         return time.time()

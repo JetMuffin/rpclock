@@ -7,7 +7,7 @@ import platform
 from tornado import gen
 from tornado.ioloop import IOLoop
 
-from rpc import RPCClient
+from rpclock.rpc import RPCClient
 
 
 def clear():
