@@ -21,7 +21,7 @@ STATUS_DICT = {
     FORBIDDEN_ERROR: 'Token request'
 }
 
-logger = logging.getLogger(__name__)
+logger = logging.getLogger('rpc')
 
 
 class Connection(object):
